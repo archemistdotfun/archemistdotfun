@@ -1,0 +1,13 @@
+{
+  "members": [
+    "0:0 launcher address",
+    "1:0 locker address",
+    "2:0 tokenState mapping(address => struct ArchemistHolderRewards.TokenState)"
+  ],
+  "types": [
+    "address | inplace | 20 bytes",
+    "bool | inplace | 1 bytes",
+    "mapping(address => struct ArchemistHolderRewards.TokenState) | mapping | 32 bytes",
+    "struct ArchemistHolderRewards.TokenState | inplace | 32 bytes | 0:0 quote address, 0:20 registered bool"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "members": [
+    "0:0 launcher address",
+    "1:0 positionInfo mapping(PoolId => struct ArchemistV4Locker.PositionInfo)",
+    "2:0 poolKey mapping(PoolId => struct PoolKey)",
+    "3:0 recipients mapping(PoolId => struct FeeRecipient[])",
+    "4:0 claimable mapping(address => mapping(address => uint256))",
+    "5:0 totalLiability mapping(address => uint256)",
+    "6:0 erc6909Claimable mapping(address => mapping(address => uint256))",
+    "7:0 totalClaimLiability mapping(address => uint256)",
+    "8:0 pendingRecipientAdmin mapping(PoolId => mapping(uint256 => address))"
+  ],
+  "types": [
+    "Currency | inplace | 20 bytes",
+    "PoolId | inplace | 32 bytes",
+    "address | inplace | 20 bytes",
+    "bool | inplace | 1 bytes",
+    "contract IHooks | inplace | 20 bytes",
+    "int24 | inplace | 3 bytes",
+    "mapping(PoolId => mapping(uint256 => address)) | mapping | 32 bytes",
+    "mapping(PoolId => struct ArchemistV4Locker.PositionInfo) | mapping | 32 bytes",
+    "mapping(PoolId => struct FeeRecipient[]) | mapping | 32 bytes",
+    "mapping(PoolId => struct PoolKey) | mapping | 32 bytes",
+    "mapping(address => mapping(address => uint256)) | mapping | 32 bytes",
+    "mapping(address => uint256) | mapping | 32 bytes",
+    "mapping(uint256 => address) | mapping | 32 bytes",
+    "struct ArchemistV4Locker.PositionInfo | inplace | 64 bytes | 0:0 token address, 0:20 tickLower int24, 0:23 tickUpper int24, 1:0 liquidity uint128, 1:16 creatorShareBps uint16, 1:18 exists bool",
+    "struct FeeRecipient | inplace | 64 bytes | 0:0 admin address, 1:0 payout address, 1:20 bps uint16",
+    "struct FeeRecipient[] | dynamic_array | 32 bytes",
+    "struct PoolKey | inplace | 96 bytes | 0:0 currency0 Currency, 1:0 currency1 Currency, 1:20 fee uint24, 1:23 tickSpacing int24, 2:0 hooks contract IHooks",
+    "uint128 | inplace | 16 bytes",
+    "uint16 | inplace | 2 bytes",
+    "uint24 | inplace | 3 bytes",
+    "uint256 | inplace | 32 bytes"
+  ]
+}

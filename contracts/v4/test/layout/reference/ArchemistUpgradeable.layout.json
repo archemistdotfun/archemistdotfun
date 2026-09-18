@@ -1,0 +1,9 @@
+{
+  "members": [
+    "0:0 owner address",
+    "1:0 pendingOwner address"
+  ],
+  "types": [
+    "address | inplace | 20 bytes"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "variables": [
+    "0:0 owner address",
+    "1:0 pendingOwner address",
+    "2:0 treasury address",
+    "3:0 pairedToken address",
+    "4:0 positionManager address",
+    "5:0 launchFactory address",
+    "6:0 protocolFeeBps uint256",
+    "7:0 _lock uint256",
+    "8:0 _initialized bool",
+    "9:0 positionForToken mapping(address => struct ArchemistV2USDCLockerV3.PositionInfo)",
+    "10:0 tokenForPositionId mapping(uint256 => address)",
+    "11:0 claimable mapping(address => mapping(address => uint256))",
+    "12:0 totalLiability mapping(address => uint256)",
+    "13:0 allPositionTokens address[]",
+    "14:0 __gap uint256[32]"
+  ],
+  "types": [
+    "address | inplace | 20 bytes",
+    "address[] | dynamic_array | 32 bytes",
+    "bool | inplace | 1 bytes",
+    "mapping(address => mapping(address => uint256)) | mapping | 32 bytes",
+    "mapping(address => struct ArchemistV2USDCLockerV3.PositionInfo) | mapping | 32 bytes",
+    "mapping(address => uint256) | mapping | 32 bytes",
+    "mapping(uint256 => address) | mapping | 32 bytes",
+    "struct ArchemistV2USDCLockerV3.PositionInfo | inplace | 160 bytes | 0:0 positionId uint256, 1:0 creatorFeeAdmin address, 2:0 creatorFeeRecipient address, 3:0 token0 address, 4:0 token1 address",
+    "uint256 | inplace | 32 bytes",
+    "uint256[32] | inplace | 1024 bytes"
+  ]
+}

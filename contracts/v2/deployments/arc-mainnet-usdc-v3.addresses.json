@@ -1,0 +1,37 @@
+{
+  "network": "arc-mainnet",
+  "chainId": 5042,
+  "implementationVersion": 3,
+  "proxy": true,
+  "predecessor": "arc-mainnet-usdc-v2",
+  "contracts": {
+    "pairedToken": "0x3600000000000000000000000000000000000000",
+    "uniswapV3Factory": "0xf0db7b58379503491d857dB50AC9ece64c653918",
+    "nonfungiblePositionManager": "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377",
+    "swapRouter02": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77",
+    "lockerImplementation": "0x5853989F172B21Df7fD7714c62dcc48e2DD1E3AE",
+    "lockerProxy": "0xD324578C2Caa01Bb454997DFcF531fCB435CE92d",
+    "factoryImplementation": "0xe93750Affc58792C9a8c78dA84A48C8f0F49de02",
+    "factoryProxy": "0x91Aca454C982459899eD46eED9668034Bd7EdF1F",
+    "timelock": "0x3E7C3a40045ff4aa78d2aBcB8dd2EE72532855bd"
+  },
+  "configuration": {
+    "treasury": "0x4C85e3847c549f4823cf9bBD5Dfc7E1724559AEf",
+    "protocolFeeBps": 2000,
+    "creatorFeeBps": 8000,
+    "feeSplitSource": "constant in ArchemistV2USDCLockerV3 - not a deploy argument, not settable"
+  },
+  "transactions": {
+    "lockerImplementation": "0x83fa316f3cb6c2ebdecb0ee438cec37a464ff32aa1432cc6c61455ed01aa2ed3",
+    "lockerProxy": "0x1f6ad899e2e6596b8a5f23fba6ceeebff05b125aa84ca26d3fe0cbe4536fe0e1",
+    "factoryImplementation": "0x21fb9578eac47f9b62ebd0a90ab7eebc207d5750f0795d3078c1f8421f20bd8e",
+    "factoryProxy": "0x89365b675b6868607f85ff01c99a9ab768390a5fd3c5e7c52b26349b7c3a1651"
+  },
+  "handoverSalt": "0xb85de24393a441d64650db536dfab58057d31845b9964aacf7941777122cf7e7",
+  "nextSteps": [
+    "acceptOwnership() is already SCHEDULED on both proxies by this script - it does not need proposing.",
+    "After the timelock delay, EXECUTE both (anyone may; the executor role is open):",
+    "  ./script/timelock.sh execute <PROXY> \"$(cast calldata 'acceptOwnership()')\" <handoverSalt>",
+    "Until they execute, the deployer still owns both proxies and can upgrade either one instantly."
+  ]
+}

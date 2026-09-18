@@ -1,0 +1,29 @@
+{
+  "members": [
+    "0:0 pairRegistry address",
+    "1:0 treasury address",
+    "2:0 deployFee uint256",
+    "3:0 locker address",
+    "4:0 buybackVault address",
+    "5:0 holderRewards address",
+    "5:20 createEnabled bool",
+    "5:21 retired bool",
+    "6:0 hookRecord mapping(address => struct ArchemistV4Launcher.HookRecord)",
+    "7:0 knownHooks address[]",
+    "8:0 launchInfoForToken mapping(address => struct ArchemistV4Launcher.LaunchInfo)",
+    "9:0 allTokens address[]"
+  ],
+  "types": [
+    "PoolId | inplace | 32 bytes",
+    "address | inplace | 20 bytes",
+    "address[] | dynamic_array | 32 bytes",
+    "bool | inplace | 1 bytes",
+    "int24 | inplace | 3 bytes",
+    "mapping(address => struct ArchemistV4Launcher.HookRecord) | mapping | 32 bytes",
+    "mapping(address => struct ArchemistV4Launcher.LaunchInfo) | mapping | 32 bytes",
+    "struct ArchemistV4Launcher.HookRecord | inplace | 32 bytes | 0:0 known bool, 0:1 enabled bool",
+    "struct ArchemistV4Launcher.LaunchInfo | inplace | 160 bytes | 0:0 creator address, 1:0 poolId PoolId, 2:0 initialTick int24, 2:3 liquidity uint128, 3:0 tokensInPosition uint256, 4:0 hook address",
+    "uint128 | inplace | 16 bytes",
+    "uint256 | inplace | 32 bytes"
+  ]
+}

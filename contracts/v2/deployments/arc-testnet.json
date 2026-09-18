@@ -1,0 +1,16 @@
+{
+  "network": "arc-testnet",
+  "chainId": 5042002,
+  "explorer": "https://explorer.testnet.arc.io",
+  "contracts": {
+    "pairedToken": "0x3600000000000000000000000000000000000000",
+    "uniswapV3Factory": "0x32440A432500cB49ffAAF8AB18749D0048fc6aA2",
+    "nonfungiblePositionManager": "0xf506Eeb2dD5eBDc64e615607c0e5668698A17dFF",
+    "swapRouter02": "0x0df09F620FcBF56F60265C21170DD84438d51867",
+    "lockerImplementation": null,
+    "lpLocker": null,
+    "factoryImplementation": null,
+    "launchFactory": null,
+    "timelock": null
+  }
+}

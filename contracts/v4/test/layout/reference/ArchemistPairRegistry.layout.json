@@ -1,0 +1,20 @@
+{
+  "members": [
+    "0:0 launcher address",
+    "1:0 pairConfig mapping(address => struct PairConfig)",
+    "2:0 pairExists mapping(address => bool)",
+    "3:0 pairs address[]"
+  ],
+  "types": [
+    "address | inplace | 20 bytes",
+    "address[] | dynamic_array | 32 bytes",
+    "bool | inplace | 1 bytes",
+    "int24 | inplace | 3 bytes",
+    "mapping(address => bool) | mapping | 32 bytes",
+    "mapping(address => struct PairConfig) | mapping | 32 bytes",
+    "struct PairConfig | inplace | 64 bytes | 0:0 enabled bool, 0:1 decimals uint8, 0:2 defaultTick int24, 0:5 minTick int24, 0:8 maxTick int24, 0:11 tickSpacing int24, 0:14 flags uint16, 1:0 buybackRoute address, 1:20 buybackRouteIsV4 bool, 1:21 buybackRouteFee uint24, 1:24 buybackRouteTickSpacing int24, 1:27 minCreatorBps uint16, 1:29 maxCreatorBps uint16",
+    "uint16 | inplace | 2 bytes",
+    "uint24 | inplace | 3 bytes",
+    "uint8 | inplace | 1 bytes"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "members": [
+    "0:0 locker address",
+    "1:0 pairRegistry address",
+    "2:0 routes mapping(address => struct ArchemistBuybackVault.Route)",
+    "3:0 referenceSqrtPriceX96 mapping(address => uint160)",
+    "4:0 lastExecuteAt mapping(address => uint64)",
+    "5:0 checkpointAt mapping(address => uint64)"
+  ],
+  "types": [
+    "Currency | inplace | 20 bytes",
+    "address | inplace | 20 bytes",
+    "bool | inplace | 1 bytes",
+    "contract IHooks | inplace | 20 bytes",
+    "enum ArchemistBuybackVault.RouteKind | inplace | 1 bytes",
+    "int24 | inplace | 3 bytes",
+    "mapping(address => struct ArchemistBuybackVault.Route) | mapping | 32 bytes",
+    "mapping(address => uint160) | mapping | 32 bytes",
+    "mapping(address => uint64) | mapping | 32 bytes",
+    "struct ArchemistBuybackVault.Route | inplace | 160 bytes | 0:0 kind enum ArchemistBuybackVault.RouteKind, 1:0 key struct PoolKey, 4:0 v3Pool address, 4:20 assetIsCurrency0 bool, 4:21 exists bool",
+    "struct PoolKey | inplace | 96 bytes | 0:0 currency0 Currency, 1:0 currency1 Currency, 1:20 fee uint24, 1:23 tickSpacing int24, 2:0 hooks contract IHooks",
+    "uint160 | inplace | 20 bytes",
+    "uint24 | inplace | 3 bytes",
+    "uint64 | inplace | 8 bytes"
+  ]
+}

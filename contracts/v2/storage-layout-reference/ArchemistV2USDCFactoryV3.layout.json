@@ -1,0 +1,29 @@
+{
+  "variables": [
+    "0:0 _pairedToken address",
+    "1:0 _uniswapV3Factory address",
+    "2:0 _positionManager address",
+    "3:0 _swapRouter02 address",
+    "4:0 _locker address",
+    "5:0 _treasury address",
+    "6:0 owner address",
+    "7:0 pendingOwner address",
+    "8:0 _lock uint256",
+    "9:0 _initialized bool",
+    "10:0 launchInfoForToken mapping(address => struct ArchemistV2USDCFactoryV3.LaunchInfo)",
+    "11:0 allTokens address[]",
+    "12:0 __gap uint256[32]"
+  ],
+  "types": [
+    "address | inplace | 20 bytes",
+    "address[] | dynamic_array | 32 bytes",
+    "bool | inplace | 1 bytes",
+    "int24 | inplace | 3 bytes",
+    "mapping(address => struct ArchemistV2USDCFactoryV3.LaunchInfo) | mapping | 32 bytes",
+    "struct ArchemistV2USDCFactoryV3.LaunchInfo | inplace | 128 bytes | 0:0 creator address, 1:0 pool address, 2:0 positionId uint256, 3:0 poolFee uint24, 3:3 normalizedTick int24, 3:6 actualPoolTick int24, 3:9 initialSqrtPriceX96 uint160, 3:29 tokenIsToken0 bool",
+    "uint160 | inplace | 20 bytes",
+    "uint24 | inplace | 3 bytes",
+    "uint256 | inplace | 32 bytes",
+    "uint256[32] | inplace | 1024 bytes"
+  ]
+}

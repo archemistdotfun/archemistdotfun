@@ -1,0 +1,25 @@
+{
+  "network": "arc-mainnet",
+  "chainId": 5042,
+  "explorer": "https://explorer.arc.io",
+  "contracts": {
+    "pairedToken": "0x3600000000000000000000000000000000000000",
+    "uniswapV3Factory": "0xf0db7b58379503491d857dB50AC9ece64c653918",
+    "nonfungiblePositionManager": "0x39654A85A4C05127f5Fd6ED22CAeC077A0fB1377",
+    "swapRouter02": "0x53BF6B0684Ec7eF91e1387Da3D1a1769bC5A6F77",
+    "lockerImplementation": "0x5853989F172B21Df7fD7714c62dcc48e2DD1E3AE",
+    "lpLocker": "0xD324578C2Caa01Bb454997DFcF531fCB435CE92d",
+    "factoryImplementation": "0xe93750Affc58792C9a8c78dA84A48C8f0F49de02",
+    "launchFactory": "0x91Aca454C982459899eD46eED9668034Bd7EdF1F",
+    "timelock": "0x3e7C3a40045ff4aA78d2ABcB8dd2EE72532855bD"
+  },
+  "note": "Infrastructure addresses are Uniswap v3 on Arc mainnet. Archemist addresses as deployed on 19 September 2026 from this repository; see docs/DEPLOYMENTS.md.",
+  "deployedAtBlock": 21542313,
+  "handover": {
+    "state": "pending",
+    "salt": "0xb85de24393a441d64650db536dfab58057d31845b9964aacf7941777122cf7e7",
+    "note": "Ownership is two-step. Both acceptOwnership operations were scheduled by the deploy script and become executable after the timelock delay. Until they execute, the deployer still owns both proxies and can upgrade either one immediately."
+  },
+  "deployBlock": 21542313,
+  "deployedAt": "2026-09-19"
+}

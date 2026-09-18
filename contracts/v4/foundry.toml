@@ -1,0 +1,44 @@
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+out = "out"
+libs = ["lib"]
+solc = "0.8.26"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+via_ir = true
+bytecode_hash = "none"
+cbor_metadata = false
+# The upgrade-layout gate (test/UpgradeLayout.t.sol) reads the compiler's own storageLayout output,
+# which solc only emits when asked. Without these two lines the gate silently has nothing to check and
+# passes for the wrong reason - which is exactly the failure mode a gate must not have.
+extra_output = ["storageLayout"]
+# `read` on ./out: the storage-layout gate reads the compiler's own artifacts rather than trusting a
+# script's reading of the source. `read-write` on the layout references so
+# `script/WriteLayoutReferences.s.sol` can regenerate them - narrowed to that one directory, because
+# nothing else in this repo should be writable by a test.
+fs_permissions = [
+    { access = "read", path = "./out" },
+    { access = "read-write", path = "./test/layout/reference" },
+]
+
+[fuzz]
+runs = 1_000
+
+[invariant]
+runs = 256
+depth = 128
+fail_on_revert = true
+
+[fmt]
+# test/vendored/* are SYMLINKS to the live, already-verified V2 fee-router sources. Blockscout matches
+# verified source byte for byte, so reformatting them would invalidate the verification of contracts
+# that are deployed and running. They are compiled here, never reformatted here.
+ignore = ["test/vendored/*"]
+line_length = 120
+bracket_spacing = true
+int_types = "long"
+quote_style = "double"
+sort_imports = true

@@ -1,0 +1,56 @@
+{
+  "name": "Archemist V4 Hook",
+  "description": "Launchpad hook for Archemist on Arc. Takes a quote-currency-only fee via return deltas: a flat 1% on sells, and on buys a quadratically decaying anti-snipe rate that starts at a per-launch value (at most 99%) and reaches the same 1% floor within at most 120 seconds. Inside that window it also caps the size of a single buy and refuses exact-output buys. The fee is split creator / ARCH buyback-and-burn / holder rewards / treasury by an off-hook locker. No owner, no pause, no allowlist, no settable fee, and the hook holds no funds.",
+  "chainId": 5042,
+  "address": "0xF22D3F0200BFDC51f2CBa9D13a6B04163745A8Cc",
+  "blockNumber": 21527890,
+  "repository": "<repository-url>",
+  "properties": {
+    "dynamicFee": false,
+    "upgradeable": false,
+    "requiresCustomSwapData": false,
+    "vanillaSwap": false,
+    "swapAccess": "none"
+  },
+  "permissions": {
+    "beforeInitialize": true,
+    "afterInitialize": false,
+    "beforeAddLiquidity": true,
+    "afterAddLiquidity": false,
+    "beforeRemoveLiquidity": false,
+    "afterRemoveLiquidity": false,
+    "beforeSwap": true,
+    "afterSwap": true,
+    "beforeDonate": false,
+    "afterDonate": false,
+    "beforeSwapReturnsDelta": true,
+    "afterSwapReturnsDelta": true,
+    "afterAddLiquidityReturnsDelta": false,
+    "afterRemoveLiquidityReturnsDelta": false
+  },
+  "permissionBits": "0x28CC",
+  "pools": [
+    {
+      "$comment": "A live pool with liquidity on the linked-USDC pair; to be filled in when submitted.",
+      "poolId": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "currency0": "0x0000000000000000000000000000000000000000",
+      "currency1": "0x3600000000000000000000000000000000000000",
+      "fee": 0,
+      "tickSpacing": 60
+    }
+  ],
+  "disclosures": {
+    "revertPaths": [
+      "ExactOutputBuyBlocked - exact-output buys, during the <=120s launch window only",
+      "MaxBuyExceeded - buys above the per-launch cap, during the window only",
+      "LiquidityLocked - third-party addLiquidity, during the window only",
+      "PartialFillNotAllowed - only when a caller's sqrtPriceLimit stops a pre-charged leg early; unreachable for routers, which pass MIN/MAX"
+    ],
+    "externalCallsInCallbacks": [
+      "locker.recordHookFee - records the minted ERC-6909 fee; the locker verifies the claim backing before crediting",
+      "vault.execute{gas: budget} in afterSwap - the trading-triggered ARCH buyback, gas-capped, try/catch'd, and never lent the reserve the swap needs to settle"
+    ],
+    "peripheryUpgradeability": "The hook and the launch tokens are immutable. The contracts that receive the fee (launcher, locker, buyback vault, holder rewards, pair registry) are UUPS proxies owned by an OpenZeppelin TimelockController with a 48-hour minimum delay, an open executor role, and itself as administrator. Every privileged action is an on-chain operation visible for at least 48 hours before it can execute. Policy: docs/UPGRADE_POLICY.md.",
+    "audit": "Internal review completed (docs/INTERNAL_AUDIT.md). Independent third-party audit not yet commissioned."
+  }
+}
